@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: parking-admin-system
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/parkinglot?useUnicode=true&characterEncoding=utf8&useSSL=false
+
+allowed:
+  origin: http://localhost:9527
