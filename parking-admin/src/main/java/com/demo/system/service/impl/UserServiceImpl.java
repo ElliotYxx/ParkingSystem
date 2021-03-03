@@ -13,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 /**
@@ -27,10 +26,10 @@ public class UserServiceImpl implements IUserService {
     private UserRepository userRepository;
 
     @Override
-    public VoUser checkLogin(VoUser user) {
+    public User checkLogin(User user) {
         User u = userRepository.findByUsername(user.getUsername());
         if (u != null && u.getPassword().equals(user.getPassword())){
-            return user;
+            return u;
         }
         return null;
     }
@@ -50,4 +49,20 @@ public class UserServiceImpl implements IUserService {
         page.setItems(userList);
         return page;
     }
+
+    @Override
+    public Integer deleteUserById(Long userId) {
+        return userRepository.deleteUserById(userId);
+    }
+
+    @Override
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userRepository.save(user);
+    }
+
 }

@@ -9,12 +9,13 @@ import com.demo.system.vo.VoUser;
  * @Date 2021/2/23
  */
 public interface IUserService {
+
     /**
-     * 查询用户
+     * 登陆校验
      * @param user
      * @return
      */
-    VoUser checkLogin(VoUser user);
+    User checkLogin(User user);
 
     /**
      * 通过用户名寻找用户
@@ -31,4 +32,19 @@ public interface IUserService {
      * @return
      */
     VoPage selectUsers(int pageNo, int limit);
+
+    /**
+     * 根据 id 删除用户
+     * @param userId
+     * @return
+     */
+    Integer deleteUserById(Long userId);
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
+    void addUser(User user);
+
+    void updateUser(User user);
 }

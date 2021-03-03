@@ -32,4 +32,15 @@ public class User {
     @Column
     private Integer roleId;
 
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String username, String password, Integer status, Integer roleId) {
+        this.username = username;
+        this.password = password;
+        this.status = status;
+        this.roleId = roleId;
+    }
 }

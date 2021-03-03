@@ -1,12 +1,13 @@
 package com.demo.system.repository;
 
 import com.demo.system.entity.User;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -30,4 +31,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
      */
     @Query("select u from User u")
     List<User> selectUsers(Pageable pageable);
+
+    /**
+     * 用户的删除操作
+     */
+    @Transactional
+    @Modifying
+    @Query("delete from User u where u.id = :userId")
+    Integer deleteUserById(@Param("userId") Long userId);
 }

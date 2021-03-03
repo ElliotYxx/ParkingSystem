@@ -3,9 +3,9 @@ package com.demo.system.controller.system;
 import com.demo.common.res.ResultResponse;
 import com.demo.common.utils.Constants;
 import com.demo.common.utils.JwtUtil;
+import com.demo.system.entity.User;
 import com.demo.system.service.IUserService;
 import com.demo.system.vo.VoToken;
-import com.demo.system.vo.VoUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,16 +25,22 @@ public class SysLoginController {
     private IUserService userService;
 
     @PostMapping("/user/login")
-    public ResultResponse login(@RequestBody VoUser user){
+    public ResultResponse login(@RequestBody User user){
         ResultResponse res = new ResultResponse();
+        log.info("接收到前端传输的账号信息："+ user.toString());
         try{
-            VoUser u = this.userService.checkLogin(user);
-            if (null != u){
+            User u = this.userService.checkLogin(user);
+            if (null != u && u.getStatus() == 0){
                 log.info("登陆成功...");
-                String token = JwtUtil.createToken("admin", "1");
+                String token = JwtUtil.createToken(u.getUsername(), String.valueOf(u.getId()));
                 res.setCode(Constants.STATUS_OK);
                 res.setMessage(Constants.MESSAGE_OK);
                 res.setData(new VoToken(token));
+            }else if(null != u && u.getStatus() == 1){
+                log.info("登陆失败...");
+                res.setCode(Constants.STATUS_FAIL);
+                res.setMessage(Constants.MESSAGE_FAIL + "用户被封禁...");
+                res.setData("fail");
             }else{
                 log.info("登陆失败...");
                 res.setCode(Constants.STATUS_FAIL);

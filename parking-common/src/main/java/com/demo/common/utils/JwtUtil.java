@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 /**
  * JWT 工具类
+ *
  * @Author sheva
  */
 public class JwtUtil {
@@ -32,7 +33,7 @@ public class JwtUtil {
     /**
      * 生成签名
      */
-    public static String createToken(String username, String userId){
+    public static String createToken(String username, String userId) {
         // 过期时间
         Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
         // 私钥以及加密算法
@@ -42,34 +43,31 @@ public class JwtUtil {
         header.put("typ", "JWT");
         header.put("alg", "HS256");
         // 附带username和userId生成签名
-        String token = JWT.create()
-                .withHeader(header) // 头
+        return JWT.create()
+                // 头
+                .withHeader(header)
                 .withClaim(TOKEN_LOGIN_NAME, username)
                 .withClaim(TOKEN_LOGIN_ID, userId)
-                .withExpiresAt(date) // 过期时间
-                .sign(algorithm); //签名
-        return token;
+                // 过期时间
+                .withExpiresAt(date)
+                .sign(algorithm);
+
     }
 
     /**
      * 验证token
      */
-    public static String verifyToken(String token){
+    public static String verifyToken(String token) {
         String result = TOKEN_SUCCESS;
-        try{
+        try {
             Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
             JWTVerifier verifier = JWT.require(algorithm).build();
             DecodedJWT jwt = verifier.verify(token);
             result += jwt.getClaims().get(TOKEN_LOGIN_NAME).asString();
             // 如果成功 返回 success：username
             return result;
-        }catch (IllegalArgumentException e){
-            return TOKEN_FAIL + e.getMessage();
-        }catch (JWTVerificationException e){
-            return TOKEN_FAIL + e.getMessage();
-        }catch (Exception e){
+        } catch (Exception e) {
             return TOKEN_FAIL + e.getMessage();
         }
     }
-
 }
