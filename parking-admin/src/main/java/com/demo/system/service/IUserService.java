@@ -2,7 +2,6 @@ package com.demo.system.service;
 
 import com.demo.system.entity.User;
 import com.demo.system.vo.VoPage;
-import com.demo.system.vo.VoUser;
 
 /**
  * @Author Sheva
@@ -28,7 +27,6 @@ public interface IUserService {
      * 用户的分页查询
      * @param pageNo
      * @param limit
-     * @param idSort
      * @return
      */
     VoPage selectUsers(int pageNo, int limit);

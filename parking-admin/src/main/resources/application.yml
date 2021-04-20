@@ -8,6 +8,8 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/parkinglot?useUnicode=true&characterEncoding=utf8&useSSL=false
-
+  servlet:
+    multipart:
+      max-file-size: 10MB
 allowed:
   origin: http://localhost:9527

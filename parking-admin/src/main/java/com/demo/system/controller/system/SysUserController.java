@@ -6,18 +6,16 @@ import com.demo.common.utils.JwtUtil;
 import com.demo.system.entity.User;
 import com.demo.system.service.IUserService;
 import com.demo.system.vo.VoPage;
-import com.demo.system.vo.VoUser;
 import com.demo.system.vo.VoUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * @Author sheva
+ * @Author Sheva
  * @Date 2021/2/24 13:36
  */
 @Slf4j
@@ -45,14 +43,12 @@ public class SysUserController {
             }
             // 封装用户信息
             VoUserInfo userInfo = new VoUserInfo();
-            //userInfo.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
             userInfo.setAvatar("http://localhost:8080/static/f778738c-e4f8-4870-b634-56703b4acafe.gif");
             userInfo.setIntroduction(roleName + "测试");
             userInfo.setName(username);
             List<String> roles = Collections.singletonList(roleName);
             userInfo.setRoles(roles);
             log.info("用户信息: " + userInfo.toString());
-
             res.setData(userInfo);
             res.setMessage(Constants.MESSAGE_OK);
             res.setCode(Constants.STATUS_OK);
@@ -69,7 +65,7 @@ public class SysUserController {
                                    @RequestParam("limit") int limit){
         ResultResponse res = null;
         VoPage page = this.userService.selectUsers(pageNo - 1, limit);
-        log.info("查询到的分页信息：" + page.toString());
+        // log.info("查询到的分页信息：" + page.toString());
         res = new ResultResponse(Constants.STATUS_OK, Constants.MESSAGE_OK, page);
         return res;
     }

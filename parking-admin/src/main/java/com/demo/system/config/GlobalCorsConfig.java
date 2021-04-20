@@ -9,8 +9,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 /**
- * @Author sheva
- * @create 2021/2/24 13:09
+ * 后端跨域配置
+ * @Author Sheva
+ * @Date 2021/2/24 13:09
  */
 @Slf4j
 @Configuration

@@ -3,7 +3,6 @@ package com.demo.common.utils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.util.Date;
@@ -11,10 +10,10 @@ import java.util.HashMap;
 
 /**
  * JWT 工具类
- *
- * @Author sheva
+ * @Author Sheva
  */
 public class JwtUtil {
+
     public static final String TOKEN_LOGIN_NAME = "username";
     public static final String TOKEN_LOGIN_ID = "userId";
     public static final String TOKEN_SUCCESS = "success:";

@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @Author sheva
- * @create 2021/2/24 11:10
+ * @Author Sheva
+ * @Date 2021/2/24 11:10
  */
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.demo.system.controller",

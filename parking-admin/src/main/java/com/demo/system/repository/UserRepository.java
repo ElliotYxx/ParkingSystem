@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @Author sheva
- * @create 2021/2/24 10:37
+ * @Date 2021/2/24 10:37
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
