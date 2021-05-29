@@ -3,6 +3,8 @@ package com.demo.system.service;
 import com.demo.system.entity.ParkingRecord;
 import com.demo.system.vo.VoPage;
 
+import java.util.List;
+
 /**
  * @Author Sheva
  * @Date 2021/3/24
@@ -16,6 +18,8 @@ public interface IRecordService {
      * @return
      */
     VoPage selectRecords(int pageNo, int limit);
+
+    List<ParkingRecord> getParkingRecord();
 
     void addRecord(ParkingRecord parkingRecord);
 

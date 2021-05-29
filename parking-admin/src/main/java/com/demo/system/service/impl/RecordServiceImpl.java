@@ -33,6 +33,11 @@ public class RecordServiceImpl implements IRecordService {
     }
 
     @Override
+    public List<ParkingRecord> getParkingRecord() {
+        return recordRepository.findAll();
+    }
+
+    @Override
     public void addRecord(ParkingRecord parkingRecord) {
         recordRepository.save(parkingRecord);
     }

@@ -1,7 +1,6 @@
 package com.demo.system.service.impl;
 
 import com.demo.system.entity.ParkingTemp;
-import com.demo.system.entity.User;
 import com.demo.system.repository.car.TempRepository;
 import com.demo.system.service.ITempService;
 import com.demo.system.vo.VoPage;

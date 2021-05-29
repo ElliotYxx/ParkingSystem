@@ -33,7 +33,7 @@ public class CarTempController {
                                       @RequestParam("limit") int limit){
         ResultResponse res = null;
         VoPage page = this.tempService.selectTemps(pageNo - 1, limit);
-        log.info("查询到的分页信息：" + page.toString());
+//        log.info("查询到的分页信息：" + page.toString());
         res = new ResultResponse(Constants.STATUS_OK, Constants.MESSAGE_OK, page);
         return res;
     }

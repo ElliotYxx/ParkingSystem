@@ -21,7 +21,7 @@ create table parkinglot.parking_temp
     plate_number varchar(20) not null comment '车牌号码',
     color varchar(10) not null comment '车牌颜色',
     create_time datetime default CURRENT_TIMESTAMP comment '进入停车场的时间',
-    file_url varchar(255) not null comment '车辆图片url'
+    file_url varchar(255) default '' comment '车辆图片url'
 )default charset utf8 comment '停车临时记录表';
 
 /** 停车记录表 **/

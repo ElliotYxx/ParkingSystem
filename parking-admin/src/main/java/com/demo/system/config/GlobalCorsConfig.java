@@ -19,6 +19,7 @@ public class GlobalCorsConfig {
 
     @Value("${allowed.origin}")
     private String allowedOrigin;
+
     @Bean
     public CorsFilter corsFilter(){
         log.info("允许跨域： " + this.allowedOrigin);
@@ -37,4 +38,6 @@ public class GlobalCorsConfig {
         // 返回新的CorsFilter
         return new CorsFilter(configSource);
     }
+
+
 }

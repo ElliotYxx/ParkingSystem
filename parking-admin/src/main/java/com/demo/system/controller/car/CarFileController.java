@@ -1,6 +1,5 @@
 package com.demo.system.controller.car;
 
-import com.demo.common.utils.Constants;
 import com.demo.common.utils.ImageUtil;
 import com.demo.common.utils.PyUtil;
 import com.demo.system.entity.ParkingTemp;

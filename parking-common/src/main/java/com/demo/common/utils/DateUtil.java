@@ -14,13 +14,13 @@ import java.util.Date;
 public class DateUtil {
 
     public static long calculateTimeDif(String lastReceiveTime) {
-        System.out.println("最后时间" + lastReceiveTime);
+//        System.out.println("最后时间" + lastReceiveTime);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date date1 = df.parse(currTime());
             Date date2 = df.parse(lastReceiveTime);
             long diff = date1.getTime() - date2.getTime();
-            System.out.println("毫秒数：" + diff);
+//            System.out.println("毫秒数：" + diff);
             //计算两个时间之间差了多少分钟
             return diff / (1000 * 60);
         } catch (Exception e) {
@@ -39,7 +39,7 @@ public class DateUtil {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         String currTime = df.format(date);
-        System.out.println("当前时间" + currTime);
+//        System.out.println("当前时间" + currTime);
         return currTime;
     }
 }

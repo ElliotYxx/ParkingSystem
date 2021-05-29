@@ -14,7 +14,7 @@ import java.util.Map;
 public class PyUtil {
     public static Map<String, String> recognizePlate(String path){
         String[] arguments = new String[]{"/usr/local/bin/python3",
-                "/Users/sheva/IdeaProjects/ParkingSystem/parking-admin/src/main/resources/py/LPR.py",
+                "/Users/sheva/IdeaProjects/ParkingSystem/parking-admin/src/main/resources/py/LPRTest.py",
                 path};
         Map<String, String> result = new HashMap<>();
         try{
@@ -22,11 +22,11 @@ public class PyUtil {
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
             String plateNumber = in.readLine();
             String color = in.readLine();
-            result.put("color", color);
             result.put("number", plateNumber);
+            result.put("color", color);
             in.close();
             proc.waitFor();
-            // System.out.println(res);
+            System.out.println("车牌识别结果为： " + plateNumber + "   " + color);
         }catch (IOException | InterruptedException e){
             e.printStackTrace();
         }
