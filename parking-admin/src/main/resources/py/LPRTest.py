@@ -15,7 +15,7 @@ client.setSocketTimeoutInMillis(5000)
 # 读取图片
 def get_file(filePath):
     with open(filePath, 'rb') as fp:
-        return fp.read()
+        return fp.read()1
 
 if __name__ == '__main__':
     filePath = sys.argv[1]
